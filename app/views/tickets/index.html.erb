@@ -1,0 +1,15 @@
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">OS</th>
+    </tr>
+</thead>
+</table>
+<tbody>
+ <% @tickets.group_by(&:status).each do |status, tickets| %>
+  <tr><%= status%>
+  <p><%= link_to "(#{tickets.count})", status_tickets_path(status) %></p>
+<% end %>
+</tbody>
